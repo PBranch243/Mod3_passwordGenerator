@@ -18,16 +18,30 @@ function generatePassword() {
     if (choice === "Y" || choice === "y") {
       console.log("woohoo!");
       charList = charList.concat(stringCaps);
+      choice = "";
+      console.log(charList);
     }
     else if (choice === "N" || choice === "n") {
       charList = charList;
       console.log("boohoo!");
+      choice ="";
     }
+    choice = window.prompt("Do you want to include lowercase letters? (Y/N)");
+    if(choice==="y" || choice === "Y"){
+      console.log("alright then");
+      charList = charList.concat(stringLower);
+      console.log(charList);
+      choice = "";
+    }else if (choice === "N" || choice === "n"){
+      charList = charList;
+      choice = "";
+    }
+    //I see in the console log that the charList is retaining value each time I run through the code so far, so I'm going to set it back to null after the function
   }
   else if(length<8 || length>128) {
     window.alert("Sorry, but you must choose a length between 8 and 128.  Feel free to try again!");
-
   }
+  charList = "";
 }
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
