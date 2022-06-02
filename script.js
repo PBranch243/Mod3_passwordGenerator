@@ -4,8 +4,7 @@ var stringLower = "abcdefghijklmnopqrstuvwxyz";
 var stringNum = "0123456789";
 var stringSymbol = "!@#$%^&*()";
 var charList = "";
-var length = 0;
-var choice = false;
+
 
 
 // my plan is to get a password length from the user, then ask a series of questions about what type of characters to use, 
@@ -15,49 +14,28 @@ function generatePassword() {
   var length = window.prompt("How long is your password? Enter a number from 8 - 128")
   console.log(length);
   if (length > 7 && length < 129) {
-    var choice = window.confirm("Do you want to include capitol letters? ('OK' for yes/'cancel' for no)");
-    if (choice = true) {
+    var choice = window.prompt("Do you want to include capitol letters? (Y/N)");
+    if (choice === "Y" || choice === "y") {
       console.log("woohoo!");
       charList = charList.concat(stringCaps);
       choice = "";
       console.log(charList);
     }
-    else if (choice = false) {
+    else if (choice === "N" || choice === "n") {
       charList = charList;
       console.log("boohoo!");
       choice ="";
     }
-    
-    choice = window.confirm("Do you want to include lowercase letters? ('OK' for yes/'cancel' for no)");
-    if(choice = true){
+    choice = window.prompt("Do you want to include lowercase letters? (Y/N)");
+    if(choice==="y" || choice === "Y"){
       console.log("alright then");
       charList = charList.concat(stringLower);
       console.log(charList);
       choice = "";
-    }else if (choice = false){
+    }else if (choice === "N" || choice === "n"){
       charList = charList;
       choice = "";
     }
-    choice = window.confirm("Do you want to include numbers? ('OK' for yes/'cancel' for no)");
-    if (choice = true){
-      charList = charList.concat(stringNum);
-      console.log(charList);
-      choice = "";
-    }else if (choice = false){
-      charList = charList;
-      choice = "";
-    }
-    choice = window.confirm("Do you want to special characters? ('OK' for yes/'cancel' for no)");
-    if (choice = true){
-      charList = charList.concat(stringSymbol);
-      console.log(charList);
-      choice = "";
-    }else if (choice = false){
-      charList = charList;
-      choice = "";
-    }
-    //I need to account for if the user doesn't choose y or n.  right now, if I enter anything else, 
-    //it just pushes through the function and leaves charList empty.  
     //I see in the console log that the charList is retaining value each time I run through the code so far, so I'm going to set it back to null after the function
   }
   else if(length<8 || length>128) {
@@ -75,10 +53,6 @@ function writePassword() {
 
   passwordText.value = password;
 
-}
-
-function generateList(){
-  // insert code to get password specs, then call this function inside generate password
 }
 
 // Add event listener to generate button
