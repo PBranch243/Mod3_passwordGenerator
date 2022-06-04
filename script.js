@@ -33,6 +33,8 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+//all that's left is to get the password displayed on the page.  review the module and come back
+  console.log("I am working");
 
 }
 
@@ -91,12 +93,12 @@ function generateCharList() {
   let arrChoice = charList.split("");
   console.log(arrChoice);
   //this seems to work.  now to make a loop that will choose randomly from the array and give us a password
-  for (i=0; i<length; i++) {
+  for (i = 0; i < length; i++) {
     var piece = Math.floor(Math.random() * arrChoice.length);
     //console.log(piece);
     password += arrChoice[piece];
     console.log(password);
-    
+
   };
 
   return password;
