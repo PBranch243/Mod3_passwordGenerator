@@ -14,31 +14,9 @@ function generatePassword() {
   var length = window.prompt("How long is your password? Enter a number from 8 - 128")
   console.log(length);
   if (length > 7 && length < 129) {
-    var choice = window.prompt("Do you want to include capitol letters? (Y/N)");
-    if (choice === "Y" || choice === "y") {
-      console.log("woohoo!");
-      charList = charList.concat(stringCaps);
-      choice = "";
-      console.log(charList);
-    }
-    else if (choice === "N" || choice === "n") {
-      charList = charList;
-      console.log("boohoo!");
-      choice ="";
-    }
-    choice = window.prompt("Do you want to include lowercase letters? (Y/N)");
-    if(choice==="y" || choice === "Y"){
-      console.log("alright then");
-      charList = charList.concat(stringLower);
-      console.log(charList);
-      choice = "";
-    }else if (choice === "N" || choice === "n"){
-      charList = charList;
-      choice = "";
-    }
-    //I see in the console log that the charList is retaining value each time I run through the code so far, so I'm going to set it back to null after the function
+generateCharList();
   }
-  else if(length<8 || length>128) {
+  else if (length < 8 || length > 128) {
     window.alert("Sorry, but you must choose a length between 8 and 128.  Feel free to try again!");
   }
   charList = "";
@@ -54,6 +32,61 @@ function writePassword() {
   passwordText.value = password;
 
 }
+
+function generateCharList(){
+  var choice = window.prompt("Do you want to include capitol letters? (Y/N)");
+  if (choice === "Y" || choice === "y") {
+    console.log("woohoo!");
+    charList = charList.concat(stringCaps);
+    choice = "";
+    console.log(charList);
+  }
+  else if (choice === "N" || choice === "n") {
+    charList = charList;
+    console.log("boohoo!");
+    choice = "";
+    console.log(charList);
+  }
+  choice = window.prompt("Do you want to include lowercase letters? (Y/N)");
+  if (choice === "y" || choice === "Y") {
+    console.log("alright then");
+    charList = charList.concat(stringLower);
+    console.log(charList);
+    choice = "";
+  } else if (choice === "N" || choice === "n") {
+    charList = charList;
+    choice = "";
+    console.log(charList);
+  }
+  choice = window.prompt("Do you want to include numbers? (Y/N");
+  if (choice === "Y" || choice === "y") {
+    console.log("numbers!");
+    charList = charList.concat(stringNum);
+    choice = "";
+    console.log(charList);
+  }
+  else if (choice === "N" || choice === "n") {
+    charList = charList;
+    console.log("boohoo!");
+    choice = "";
+    console.log(charList);
+  }
+  choice = window.prompt("Do you want to include special characters? (Y/N)");
+  if (choice === "Y" || choice === "y") {
+    console.log("woohoo!");
+    charList = charList.concat(stringSymbol);
+    choice = "";
+    console.log(charList);
+  }
+  else if (choice === "N" || choice === "n") {
+    charList = charList;
+    console.log("boohoo!");
+    choice = "";
+    console.log(charList);
+  }
+  //I see in the console log that the charList is retaining value each time I run through the code so far, so I'm going to set it back to null after the function
+}
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
