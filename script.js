@@ -5,6 +5,7 @@ var stringNum = "0123456789";
 var stringSymbol = "!@#$%^&*()";
 var charList = "";
 var length = 0;
+var password = "";
 
 
 // my plan is to get a password length from the user, then ask a series of questions about what type of characters to use, 
@@ -90,12 +91,15 @@ function generateCharList() {
   let arrChoice = charList.split("");
   console.log(arrChoice);
   //this seems to work.  now to make a loop that will choose randomly from the array and give us a password
-  for (i=1; i<length; i++) {
+  for (i=0; i<length; i++) {
     var piece = Math.floor(Math.random() * arrChoice.length);
-    console.log(piece);
+    //console.log(piece);
+    password += arrChoice[piece];
+    console.log(password);
+    
   };
 
-
+  return password;
   //I see in the console log that the charList is retaining value each time I run through the code so far, so I'm going to set it back to null after the function
 }
 
