@@ -29,13 +29,10 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-//all that's left is to get the password displayed on the page.  review the module and come back
-  console.log("I am working");
-
+  generatePassword();
+  document.getElementById("password").value = password;
+  //set password back to empty for next run
+  password=""
 }
 
 function generateCharList() {
